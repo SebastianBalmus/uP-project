@@ -14,7 +14,7 @@ class Session(models.Model):
     numberOfPhrases = models.IntegerField()
 
     def __str__(self):
-        return self.code
+        return f'{self.id}-{self.code}-{self.expiration}'
 
 
 def audio_file_organisation_path(instance, filename):
@@ -29,7 +29,7 @@ class Audio(models.Model):
         (FEMALE, 'Female'),
     )
 
-    session = models.ForeignKey(Session, on_delete=models.SET_NULL, default=None, null=True)
+    session = models.ForeignKey(Session, on_delete=models.CASCADE, default=None, null=True)
     phrase = models.ForeignKey(Phrase, on_delete=models.SET_NULL, default=None, null=True)
     sex = models.CharField(choices=SEX_CHOICES, max_length=6, blank=True, null=True)
     file = models.FileField(upload_to=audio_file_organisation_path, blank=True, null=True)

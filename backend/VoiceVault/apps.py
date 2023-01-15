@@ -1,5 +1,5 @@
 from django.apps import AppConfig
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
 
 
 class VoicevaultConfig(AppConfig):
@@ -10,4 +10,5 @@ class VoicevaultConfig(AppConfig):
         session_model = self.get_model('Session')
         from . import signals
         pre_save.connect(signals.generate_session_code, session_model)
+        post_save.connect(signals.generate_session_audios, session_model)
 

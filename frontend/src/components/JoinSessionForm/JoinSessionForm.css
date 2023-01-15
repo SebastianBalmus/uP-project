@@ -1,0 +1,24 @@
+.join-session-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  background: linear-gradient(120deg, rgba(102,16,242,1) 0%, rgba(175,72,191,1) 100%);
+  min-height: 300px;
+  aspect-ratio: 1/1;
+}
+
+.join-session-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.join-session-form h1 {
+  font-size: 90px;
+  margin: 0;
+}
